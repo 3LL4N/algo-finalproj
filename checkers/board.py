@@ -102,7 +102,7 @@ class Board:
 
                     moves.update(self._traverse_left(i + step, row, step, color, left - 1, skipped = last))
                     moves.update(self._traverse_right(i + step, row, step, color, left + 1, skipped = last))
-                    break
+                break
             elif current.color == color:
                 break
             else:
@@ -138,7 +138,7 @@ class Board:
 
                     moves.update(self._traverse_left(i + step, row, step, color, right - 1, skipped = last))
                     moves.update(self._traverse_right(i + step, row, step, color, right + 1, skipped = last))
-                    break
+                break
             elif current.color == color:
                 break
             else:

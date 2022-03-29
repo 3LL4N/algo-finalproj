@@ -56,7 +56,7 @@ class Game:
         
         for move in moves:
             row, col = move
-            pygame.draw.circle(self.win, YELLOW, (row * SQUARE_SIZE - SQUARE_SIZE // 2, col * SQUARE_SIZE - SQUARE_SIZE // 2), 15)
+            pygame.draw.circle(self.win, YELLOW, (col * SQUARE_SIZE + SQUARE_SIZE // 2, row * SQUARE_SIZE + SQUARE_SIZE // 2), 15)
 
     def change_turn(self):
 
