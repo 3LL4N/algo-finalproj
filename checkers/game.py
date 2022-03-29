@@ -1,5 +1,5 @@
 import pygame
-from .constants import WHITE, BLACK
+from .constants import SQUARE_SIZE, WHITE, BLACK, YELLOW
 from .board import Board
 
 class Game:
@@ -9,6 +9,7 @@ class Game:
 
     def update(self):
         self.board.draw(self.win)
+        self.draw_valid_moves(self.valid_moves)
         pygame.display.update()
     
     def _init(self):
@@ -51,6 +52,12 @@ class Game:
         
         return True
     
+    def draw_valid_moves(self, moves):
+        
+        for move in moves:
+            row, col = move
+            pygame.draw.circle(self.win, YELLOW, (row * SQUARE_SIZE - SQUARE_SIZE // 2, col * SQUARE_SIZE - SQUARE_SIZE // 2), 15)
+
     def change_turn(self):
 
         if self.turn == BLACK:

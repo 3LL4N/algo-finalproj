@@ -60,11 +60,11 @@ class Board:
 
                 if piece != 0:
                     piece.draw(win)
-                    
+    
     def get_valid_moves(self, piece):
         moves = {}
         left = piece.col - 1
-        right = piece.ol + 1
+        right = piece.col + 1
         row = piece.row
 
         if piece.color == BLACK or piece.king:
@@ -84,7 +84,7 @@ class Board:
             if left < 0:
                 break
             
-            current = self.board.get_piece(i, left)
+            current = self.board[i][left]
 
             if current == 0:
                 if skipped and not last:
@@ -120,7 +120,7 @@ class Board:
             if right >= COLS:
                 break
             
-            current = self.board.get_piece(i, right)
+            current = self.board[i][right]
 
             if current == 0:
                 if skipped and not last:
