@@ -65,6 +65,8 @@ class Game:
 
     def change_turn(self):
 
+        self.valid_moves = {}
+
         if self.turn == BLACK:
             self.turn = WHITE
         else:
