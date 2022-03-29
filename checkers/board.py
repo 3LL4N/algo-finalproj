@@ -6,7 +6,6 @@ class Board:
     def __init__(self):
         self.board = []
         self.turn = 0
-        self.selected_piece = None
         self.black_left = self.white_left = 12
         self.black_kings = self.white_kings = 0
         self.create_board()
@@ -32,6 +31,7 @@ class Board:
 
     def get_piece(self, row, col):
         return self.board[row][col]
+
     def create_board(self):
 
         for row in range(ROWS):
@@ -47,7 +47,6 @@ class Board:
                         self.board[row].append(Piece(row, col, BLACK))
                     else:
                         self.board[row].append(0)
-
                 else:
                     self.board[row].append(0)
     
