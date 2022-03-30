@@ -17,7 +17,7 @@ def minimax(position, depth, max_player, game):
 
         for move in get_all_moves(position, WHITE, game):
 
-            eval = minimax(move, depth - 1, False, game)
+            eval = minimax(move, depth - 1, False, game)[0]
             maxEval = max(maxEval, eval)
 
             if maxEval == eval:
@@ -31,7 +31,7 @@ def minimax(position, depth, max_player, game):
 
         for move in get_all_moves(position, BLACK, game):
 
-            eval = minimax(move, depth - 1, True, game)
+            eval = minimax(move, depth - 1, True, game)[0]
             minEval = min(minEval, eval)
 
             if minEval == eval:
