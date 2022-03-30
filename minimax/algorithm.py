@@ -16,8 +16,26 @@ def minimax(position, depth, max_player, game):
         for move in get_all_moves(position, WHITE, game):
 
             eval = minimax(move, depth - 1, False, game)
+            maxEval = max(maxEval, eval)
+
+            if maxEval == eval:
+                best_move = move
+
+        return maxEval, best_move
     else:
-        pass
+        minEval = float('inf')
+        best_move = None
+
+        for move in get_all_moves(position, BLACK, game):
+
+            eval = minimax(move, depth - 1, True, game)
+            minEval = min(minEval, eval)
+
+            if minEval == eval:
+                best_move = move
+
+        return minEval, best_move
+        
 
 def simulate_move(piece, move, board, game, skip):
     board.move(piece, move[0], move[1])
