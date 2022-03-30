@@ -61,8 +61,8 @@ def get_all_moves(board, color, game):
         for move, skip in valid_moves.items():
             
             temp_board = deepcopy(board) # Uses tempray board when testing and not the actual board
-            new_board = simulate_move(temp_piece, move, temp_board, game, skip)
             temp_piece = temp_board.get_piece(piece.row, piece.col)
+            new_board = simulate_move(temp_piece, move, temp_board, game, skip)
             moves.append(new_board)
     
     return moves
